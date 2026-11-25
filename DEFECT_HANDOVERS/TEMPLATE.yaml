@@ -1,0 +1,14 @@
+defect_id: XY-NNNN
+compiler_revision: ""          # exact commit or pinned artifact hash
+invocation: ""                 # exact command used
+source: ""                     # path to reproducer fixture
+expected_behavior: ""
+observed_behavior: ""
+minimal_reproducer: ""         # exact source text / steps
+specification_reference: ""    # normative doc + section
+suspected_subsystem: ""        # from PROTECTED_AREAS.md
+confidence: low | medium | high
+responsible_team: compiler-performance
+discovered_by: ""              # agent id
+status: open | handed_over | confirmed | resolved_by_other_team
+notes: ""

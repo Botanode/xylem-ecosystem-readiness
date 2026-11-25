@@ -1,0 +1,189 @@
+{
+  "generated_utc": "2026-11-25T04:01:19.019711+00:00",
+  "purpose": "source-level compiler regression surface; not a benchmark",
+  "compiler_sha256": "7082acd9baf0d0370a84efd67f25ae3dab470dce4b0ba440f945b7687748704c",
+  "backend_host_path": "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem-backend-host",
+  "backend_host_sha256": "292a97d99331a18cd2e52b819738b94f6b1b5f7fac851250cef24a0e1e62c284",
+  "workloads": [
+    {
+      "workload": "examples/config-counter/src/main.xy",
+      "exit": 0,
+      "source_sha256": "ffd3715dcbfafc3dd6250b8510e4e5cc20d9d29bcdbda1d42d6827b3f491d912",
+      "modules": 5,
+      "functions": 160,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/text-stats/src/main.xy",
+      "exit": 0,
+      "source_sha256": "c64e21d57a52f246cbc0940645ae3ce2990e4c71d90b5070199dd73f5259aba4",
+      "modules": 3,
+      "functions": 100,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/task-list/src/main.xy",
+      "exit": 0,
+      "source_sha256": "26da87314a7cbe8458590c8f48fdc7a3bcefae9eb30c2df920e56ea288faea36",
+      "modules": 5,
+      "functions": 135,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/web-router/src/main.xy",
+      "exit": 0,
+      "source_sha256": "876703e9cfd56b61ff3df4dc9fa7f8aae00254015ad2d092c179a5e67916e41f",
+      "modules": 6,
+      "functions": 122,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/project-inspector/src/main.xy",
+      "exit": 0,
+      "source_sha256": "b835aea27670c6179ce0bb742f5117e044bd697bf0ebef00af358b772721499c",
+      "modules": 4,
+      "functions": 109,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/networking-echo/src/main.xy",
+      "exit": 0,
+      "source_sha256": "5e93ce585f39f5733e281742a8455bb36f71cb8eda2c1ed57320196764644c96",
+      "modules": 5,
+      "functions": 123,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/web-framework/src/main.xy",
+      "exit": 0,
+      "source_sha256": "2ad3bb3e79fd04bd5f5ff692b1556bb153c7ff5d0294221b290a95b035bf3675",
+      "modules": 6,
+      "functions": 121,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/lotus-web-consumer/src/main.xy",
+      "exit": 0,
+      "source_sha256": "3f1fe1295e7929a8872f5c5cbaafaf0eb63cbc77268ca34427fe7e07c5301481",
+      "modules": 10,
+      "functions": 200,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/lotus-server-consumer/src/main.xy",
+      "exit": 0,
+      "source_sha256": "eb2cd4612a565b6fdfd24212e94d6fd03e6f4ca4ddb99143858c4a8163350d23",
+      "modules": 11,
+      "functions": 207,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/lotus-desktop-consumer/src/main.xy",
+      "exit": 0,
+      "source_sha256": "07c92ad12ddfbc30f21795d92fd2fe6ab2a10662b962ce93bd69245dffa13136",
+      "modules": 11,
+      "functions": 207,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/lotus-mobile-consumer/src/main.xy",
+      "exit": 0,
+      "source_sha256": "dce495faedb58bdcfac7785542945ae54f5fbc445ff5e18ccfd9fdb11b3650c7",
+      "modules": 11,
+      "functions": 207,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "apps/cedar/src/main.xy",
+      "exit": 0,
+      "source_sha256": "559d2e74f9a08d939d4ffd189b6c33d9eaa3186ba407772b89af4c8696dc6469",
+      "modules": 16,
+      "functions": 217,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "apps/cedar/src/assessment_main.xy",
+      "exit": 0,
+      "source_sha256": "d2107c273d81e4580fec262b9a1c007fcfcb7979721c225ff9d00171ba6a2c7c",
+      "modules": 16,
+      "functions": 231,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "apps/orchid/src/main.xy",
+      "exit": 0,
+      "source_sha256": "a98b759c322ce190771f4f08a1a80d1b012f2d50b2d1379ede41da43df8f1535",
+      "modules": 15,
+      "functions": 296,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "apps/orchid/src/plugin_report.xy",
+      "exit": 0,
+      "source_sha256": "d7ee0f3b3860c5b7f91de873d775bc5c30f89e2a665a4984b15daa91674edb84",
+      "modules": 12,
+      "functions": 249,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "apps/orchid/src/graph_report.xy",
+      "exit": 0,
+      "source_sha256": "7ff979f66a9e532dfb9d7afe9ec0a803b2b92ca3daf6f08df70d9a1ca771e13e",
+      "modules": 18,
+      "functions": 360,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "apps/orchid/src/session_report.xy",
+      "exit": 0,
+      "source_sha256": "d216df19b06fe3175eb5275bd941ab4e0c1a5548936b9d3d3c3ffce42e1a7be1",
+      "modules": 13,
+      "functions": 277,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "apps/orchid/src/sdk_report.xy",
+      "exit": 0,
+      "source_sha256": "0f6c638f60c17034070f6c6f3367ecc1f2521727ba4202c11116f909d511881a",
+      "modules": 27,
+      "functions": 478,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "examples/web-framework-aurelia/src/main.xy",
+      "exit": 0,
+      "source_sha256": "1f2ab0870d8e579e719c167dd6714d7e06f77087c17281bdb98475debac1beba",
+      "modules": 16,
+      "functions": 162,
+      "ok": true,
+      "diagnostics": []
+    },
+    {
+      "workload": "framework/web/tests/framework.xy",
+      "exit": 0,
+      "source_sha256": "9801e353267dcb492669cbab66f96073dccaedeecd0b9c84dbc32cc5ea851936",
+      "modules": 11,
+      "functions": 169,
+      "ok": true,
+      "diagnostics": []
+    }
+  ]
+}

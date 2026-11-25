@@ -1,0 +1,13 @@
+// XY-003 reproducer: a binary || starting a continuation line is parsed as a
+// zero-argument closure, producing E3004 (fn() -> bool instead of bool).
+fn either(a: bool, b: bool) -> bool {
+    return a
+        || b
+}
+
+fn main() -> i32 {
+    if either(true, false) {
+        print("ok")
+    }
+    return 0
+}

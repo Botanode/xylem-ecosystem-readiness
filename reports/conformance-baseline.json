@@ -1,0 +1,2016 @@
+{
+  "schema": "xylem-independent-conformance-results/1",
+  "timestamp": "2026-11-25T03:11:03+00:00",
+  "mode": "execute",
+  "compiler": {
+    "source": "XYLEM_BOOTSTRAP",
+    "path": "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+    "sha256": "7082acd9baf0d0370a84efd67f25ae3dab470dce4b0ba440f945b7687748704c",
+    "executable_present": true,
+    "toolchain_pins": {
+      "bootstrap_source_revision": "5ff0ba2a949aea8acb08fe5cc4e8a5dbd855dcc4",
+      "bootstrap_artifact_sha256": "7082acd9baf0d0370a84efd67f25ae3dab470dce4b0ba440f945b7687748704c",
+      "backend_host_source_revision": "7fe37434c868908cea37fc55475929cea2a15590",
+      "backend_host_artifact_sha256": "2e2d75fb2870e1106883351424e954d00680cedb0d7e333e7058056afa5d83b2"
+    },
+    "observed_matches_bootstrap_pin": true,
+    "backend_host": {
+      "source": "XYLEM_BACKEND_HOST",
+      "path": "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem-backend-host",
+      "sha256": "292a97d99331a18cd2e52b819738b94f6b1b5f7fac851250cef24a0e1e62c284"
+    }
+  },
+  "options": {
+    "category": null,
+    "id": null,
+    "limit": 40,
+    "executed": 34,
+    "timeout_seconds": 30.0,
+    "corpus_root": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance",
+    "out": "/home/philip/Development/version_2/ecosystem-readiness/reports/conformance-full.json"
+  },
+  "summary": {
+    "selected": 34,
+    "PASS": 34,
+    "FAIL": 0,
+    "SKIP": 0
+  },
+  "cases": [
+    {
+      "id": "C001-for-range-with-break-and-continue",
+      "category": "control-flow",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C001-for-range-with-break-and-continue",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "4\n3\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C001-for-range-with-break-and-continue/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C001-for-range-with-break-and-continue"
+        }
+      ],
+      "observed": {
+        "stdout": "4\n3\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C001-for-range-with-break-and-continue/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C001-for-range-with-break-and-continue",
+            "observed": {
+              "stdout": "4\n3\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "C002-while-let-with-break-and-continue",
+      "category": "control-flow",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C002-while-let-with-break-and-continue",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "8\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C002-while-let-with-break-and-continue/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C002-while-let-with-break-and-continue"
+        }
+      ],
+      "observed": {
+        "stdout": "8\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C002-while-let-with-break-and-continue/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/control-flow/C002-while-let-with-break-and-continue",
+            "observed": {
+              "stdout": "8\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "D001-invalid-token-diagnostic",
+      "category": "diagnostics",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D001-invalid-token-diagnostic",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E1001",
+            "file": "main.xy",
+            "line": 2
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D001-invalid-token-diagnostic/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D001-invalid-token-diagnostic"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:2:5: error[E1001] (lexical): unexpected character `@`\n      @\n      ^\n  help: remove the character or spell it inside a string literal\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D001-invalid-token-diagnostic/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D001-invalid-token-diagnostic",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:2:5: error[E1001] (lexical): unexpected character `@`\n      @\n      ^\n  help: remove the character or spell it inside a string literal\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E1001"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "D002-non-exhaustive-match-diagnostic",
+      "category": "diagnostics",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D002-non-exhaustive-match-diagnostic",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E3010",
+            "file": "main.xy",
+            "line": 8
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D002-non-exhaustive-match-diagnostic/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D002-non-exhaustive-match-diagnostic"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:8:5: error[E3010] (type): non-exhaustive match on `Status`; missing `Full`\n      match status {\n      ^^^^^^^^^^^^^^\n  help: add the missing variants or a `_` arm\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D002-non-exhaustive-match-diagnostic/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D002-non-exhaustive-match-diagnostic",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:8:5: error[E3010] (type): non-exhaustive match on `Status`; missing `Full`\n      match status {\n      ^^^^^^^^^^^^^^\n  help: add the missing variants or a `_` arm\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E3010"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "D003-division-by-zero-trap-location",
+      "category": "diagnostics",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D003-division-by-zero-trap-location",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "trap",
+        "output": "before\n",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "R6001",
+            "file": "main.xy",
+            "line": 4
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D003-division-by-zero-trap-location/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D003-division-by-zero-trap-location"
+        }
+      ],
+      "observed": {
+        "stdout": "before\n",
+        "stderr": "main.xy:4:11: error[R6001] (runtime): division by zero\n      print(10 / zero)\n            ^^^^^^^^^\n  cause: execution trapped in the bootstrap interpreter\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D003-division-by-zero-trap-location/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D003-division-by-zero-trap-location",
+            "observed": {
+              "stdout": "before\n",
+              "stderr": "main.xy:4:11: error[R6001] (runtime): division by zero\n      print(10 / zero)\n            ^^^^^^^^^\n  cause: execution trapped in the bootstrap interpreter\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "R6001"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches trap oracle"
+    },
+    {
+      "id": "D004-effect-missing",
+      "category": "diagnostics",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D004-effect-missing",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E4001",
+            "file": "main.xy",
+            "line": 7
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D004-effect-missing/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D004-effect-missing"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:7:1: error[E4001] (effect): function does not declare required effect(s): `allocation`\n  fn main() -> i32 {\n  ^^^^^^^^^^^^^^^^^^\nmain.xy:8:12: note: `allocation` is required by this call to `allocate_it`\n      return allocate_it()\n             ^^^^^^^^^^^^^\nmain.xy:1:4: note: effect `allocation` is declared here\n  fn allocate_it() -> i32 effects [allocation] {\n     ^^^^^^^^^^^\n  cause: a callee requires an effect the caller's signature omits\n  help: add the missing effect to the `effects [...]` clause\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D004-effect-missing/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D004-effect-missing",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:7:1: error[E4001] (effect): function does not declare required effect(s): `allocation`\n  fn main() -> i32 {\n  ^^^^^^^^^^^^^^^^^^\nmain.xy:8:12: note: `allocation` is required by this call to `allocate_it`\n      return allocate_it()\n             ^^^^^^^^^^^^^\nmain.xy:1:4: note: effect `allocation` is declared here\n  fn allocate_it() -> i32 effects [allocation] {\n     ^^^^^^^^^^^\n  cause: a callee requires an effect the caller's signature omits\n  help: add the missing effect to the `effects [...]` clause\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E4001"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "D005-effect-declared",
+      "category": "diagnostics",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D005-effect-declared",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D005-effect-declared/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D005-effect-declared"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D005-effect-declared/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D005-effect-declared",
+            "observed": {
+              "stdout": "",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "D006-effect-transitive",
+      "category": "diagnostics",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D006-effect-transitive",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E4001",
+            "file": "main.xy",
+            "line": 3
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D006-effect-transitive/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D006-effect-transitive"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:3:1: error[E4001] (effect): function does not declare required effect(s): `allocation`\n  fn main() -> i32 {\n  ^^^^^^^^^^^^^^^^^^\nmain.xy:4:12: note: `allocation` is required by this call to `helper::needs_alloc`\n      return needs_alloc()\n             ^^^^^^^^^^^^^\nhelper.xy:1:8: note: effect `allocation` is declared here\n  pub fn needs_alloc() -> i32 effects [allocation] {\n         ^^^^^^^^^^^\n  cause: a callee requires an effect the caller's signature omits\n  help: add the missing effect to the `effects [...]` clause\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D006-effect-transitive/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/diagnostics/D006-effect-transitive",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:3:1: error[E4001] (effect): function does not declare required effect(s): `allocation`\n  fn main() -> i32 {\n  ^^^^^^^^^^^^^^^^^^\nmain.xy:4:12: note: `allocation` is required by this call to `helper::needs_alloc`\n      return needs_alloc()\n             ^^^^^^^^^^^^^\nhelper.xy:1:8: note: effect `allocation` is declared here\n  pub fn needs_alloc() -> i32 effects [allocation] {\n         ^^^^^^^^^^^\n  cause: a callee requires an effect the caller's signature omits\n  help: add the missing effect to the `effects [...]` clause\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E4001"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "F001-tail-expression-and-early-return",
+      "category": "functions",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F001-tail-expression-and-early-return",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "5\n5\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F001-tail-expression-and-early-return/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F001-tail-expression-and-early-return"
+        }
+      ],
+      "observed": {
+        "stdout": "5\n5\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F001-tail-expression-and-early-return/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F001-tail-expression-and-early-return",
+            "observed": {
+              "stdout": "5\n5\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "F002-unit-return-main",
+      "category": "functions",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F002-unit-return-main",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F002-unit-return-main/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F002-unit-return-main"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F002-unit-return-main/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/functions/F002-unit-return-main",
+            "observed": {
+              "stdout": "",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "G001-identity-two-instantiations",
+      "category": "generics",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G001-identity-two-instantiations",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "7\n3\ntext\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G001-identity-two-instantiations/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G001-identity-two-instantiations"
+        }
+      ],
+      "observed": {
+        "stdout": "7\n3\ntext\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G001-identity-two-instantiations/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G001-identity-two-instantiations",
+            "observed": {
+              "stdout": "7\n3\ntext\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "G002-generic-struct-copy-and-string",
+      "category": "generics",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G002-generic-struct-copy-and-string",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "7\nbox\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G002-generic-struct-copy-and-string/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G002-generic-struct-copy-and-string"
+        }
+      ],
+      "observed": {
+        "stdout": "7\nbox\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G002-generic-struct-copy-and-string/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/generics/G002-generic-struct-copy-and-string",
+            "observed": {
+              "stdout": "7\nbox\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "I001-stdlib-import",
+      "category": "imports",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I001-stdlib-import",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "modules\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I001-stdlib-import/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I001-stdlib-import"
+        }
+      ],
+      "observed": {
+        "stdout": "modules\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I001-stdlib-import/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I001-stdlib-import",
+            "observed": {
+              "stdout": "modules\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "I002-import-unknown-item",
+      "category": "imports",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I002-import-unknown-item",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E2006",
+            "file": "main.xy",
+            "line": 1
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I002-import-unknown-item/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I002-import-unknown-item"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:1:10: error[E2006] (name-resolution): module `lib` does not define `missing`\n  import { missing } from \"./lib\"\n           ^^^^^^^\n  cause: the module resolved, but it declares no item with that name\n  help: import a public item declared by that module\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I002-import-unknown-item/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/imports/I002-import-unknown-item",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:1:10: error[E2006] (name-resolution): module `lib` does not define `missing`\n  import { missing } from \"./lib\"\n           ^^^^^^^\n  cause: the module resolved, but it declares no item with that name\n  help: import a public item declared by that module\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E2006"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "MS001-unterminated-string-literal",
+      "category": "malformed-source",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS001-unterminated-string-literal",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E1002",
+            "file": "main.xy",
+            "line": 2
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS001-unterminated-string-literal/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS001-unterminated-string-literal"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:2:16: error[E1002] (lexical): string literal is not closed before the end of the line\n      let text = \"oops\n                 ^^^^^\n  help: close the string on the same line\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS001-unterminated-string-literal/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS001-unterminated-string-literal",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:2:16: error[E1002] (lexical): string literal is not closed before the end of the line\n      let text = \"oops\n                 ^^^^^\n  help: close the string on the same line\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E1002"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "MS002-unterminated-block-comment",
+      "category": "malformed-source",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS002-unterminated-block-comment",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E1004",
+            "file": "main.xy",
+            "line": 1
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS002-unterminated-block-comment/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS002-unterminated-block-comment"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:1:1: error[E1004] (lexical): unterminated block comment\n  /*\n  ^^\n  help: add `*/` to close the comment\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS002-unterminated-block-comment/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/malformed-source/MS002-unterminated-block-comment",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:1:1: error[E1004] (lexical): unterminated block comment\n  /*\n  ^^\n  help: add `*/` to close the comment\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E1004"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "T001-consistent-local-rename",
+      "category": "metamorphic",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T001-consistent-local-rename",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "6\n9\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "base.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T001-consistent-local-rename/base.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T001-consistent-local-rename"
+        },
+        {
+          "source": "renamed.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T001-consistent-local-rename/renamed.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T001-consistent-local-rename"
+        }
+      ],
+      "observed": {
+        "stdout": "6\n9\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "base.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T001-consistent-local-rename/base.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T001-consistent-local-rename",
+            "observed": {
+              "stdout": "6\n9\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          },
+          {
+            "source": "renamed.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T001-consistent-local-rename/renamed.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T001-consistent-local-rename",
+            "observed": {
+              "stdout": "6\n9\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "T002-redundant-parentheses",
+      "category": "metamorphic",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T002-redundant-parentheses",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "7\ntrue\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "base.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T002-redundant-parentheses/base.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T002-redundant-parentheses"
+        },
+        {
+          "source": "parenthesized.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T002-redundant-parentheses/parenthesized.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T002-redundant-parentheses"
+        }
+      ],
+      "observed": {
+        "stdout": "7\ntrue\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "base.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T002-redundant-parentheses/base.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T002-redundant-parentheses",
+            "observed": {
+              "stdout": "7\ntrue\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          },
+          {
+            "source": "parenthesized.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T002-redundant-parentheses/parenthesized.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T002-redundant-parentheses",
+            "observed": {
+              "stdout": "7\ntrue\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "T003-added-comments-and-blank-lines",
+      "category": "metamorphic",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T003-added-comments-and-blank-lines",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "12\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "base.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T003-added-comments-and-blank-lines/base.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T003-added-comments-and-blank-lines"
+        },
+        {
+          "source": "annotated.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T003-added-comments-and-blank-lines/annotated.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T003-added-comments-and-blank-lines"
+        }
+      ],
+      "observed": {
+        "stdout": "12\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "base.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T003-added-comments-and-blank-lines/base.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T003-added-comments-and-blank-lines",
+            "observed": {
+              "stdout": "12\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          },
+          {
+            "source": "annotated.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T003-added-comments-and-blank-lines/annotated.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T003-added-comments-and-blank-lines",
+            "observed": {
+              "stdout": "12\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "T004-independent-declaration-reordering",
+      "category": "metamorphic",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T004-independent-declaration-reordering",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "8\n15\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "base.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T004-independent-declaration-reordering/base.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T004-independent-declaration-reordering"
+        },
+        {
+          "source": "reordered.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T004-independent-declaration-reordering/reordered.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T004-independent-declaration-reordering"
+        }
+      ],
+      "observed": {
+        "stdout": "8\n15\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "base.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T004-independent-declaration-reordering/base.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T004-independent-declaration-reordering",
+            "observed": {
+              "stdout": "8\n15\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          },
+          {
+            "source": "reordered.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T004-independent-declaration-reordering/reordered.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/metamorphic/T004-independent-declaration-reordering",
+            "observed": {
+              "stdout": "8\n15\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "M001-pub-import-chain",
+      "category": "modules",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M001-pub-import-chain",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "9\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M001-pub-import-chain/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M001-pub-import-chain"
+        }
+      ],
+      "observed": {
+        "stdout": "9\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M001-pub-import-chain/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M001-pub-import-chain",
+            "observed": {
+              "stdout": "9\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "M002-two-independent-imports",
+      "category": "modules",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M002-two-independent-imports",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "5\n10\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M002-two-independent-imports/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M002-two-independent-imports"
+        }
+      ],
+      "observed": {
+        "stdout": "5\n10\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M002-two-independent-imports/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/modules/M002-two-independent-imports",
+            "observed": {
+              "stdout": "5\n10\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "MM001-three-layer-import-graph",
+      "category": "multi-module",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM001-three-layer-import-graph",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "3\n12\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM001-three-layer-import-graph/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM001-three-layer-import-graph"
+        }
+      ],
+      "observed": {
+        "stdout": "3\n12\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM001-three-layer-import-graph/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM001-three-layer-import-graph",
+            "observed": {
+              "stdout": "3\n12\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "MM002-shared-leaf-diamond-graph",
+      "category": "multi-module",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM002-shared-leaf-diamond-graph",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "11\n12\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM002-shared-leaf-diamond-graph/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM002-shared-leaf-diamond-graph"
+        }
+      ],
+      "observed": {
+        "stdout": "11\n12\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM002-shared-leaf-diamond-graph/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/multi-module/MM002-shared-leaf-diamond-graph",
+            "observed": {
+              "stdout": "11\n12\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "P001-exhaustive-enum-match",
+      "category": "patterns",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P001-exhaustive-enum-match",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "0\n41\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P001-exhaustive-enum-match/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P001-exhaustive-enum-match"
+        }
+      ],
+      "observed": {
+        "stdout": "0\n41\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P001-exhaustive-enum-match/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P001-exhaustive-enum-match",
+            "observed": {
+              "stdout": "0\n41\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "P002-or-pattern-range-and-wildcard",
+      "category": "patterns",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P002-or-pattern-range-and-wildcard",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "15\n5\n7\n3\n4\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P002-or-pattern-range-and-wildcard/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P002-or-pattern-range-and-wildcard"
+        }
+      ],
+      "observed": {
+        "stdout": "15\n5\n7\n3\n4\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P002-or-pattern-range-and-wildcard/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/patterns/P002-or-pattern-range-and-wildcard",
+            "observed": {
+              "stdout": "15\n5\n7\n3\n4\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "R001-unresolved-import-path",
+      "category": "resolution",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R001-unresolved-import-path",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E2003",
+            "file": "main.xy",
+            "line": 1
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R001-unresolved-import-path/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R001-unresolved-import-path"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:1:23: error[E2003] (name-resolution): cannot resolve import path `./missing`\n  import { value } from \"./missing\"\n                        ^^^^^^^^^^^\n  cause: the imported module was not found relative to this file\n  help: correct the import path\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R001-unresolved-import-path/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R001-unresolved-import-path",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:1:23: error[E2003] (name-resolution): cannot resolve import path `./missing`\n  import { value } from \"./missing\"\n                        ^^^^^^^^^^^\n  cause: the imported module was not found relative to this file\n  help: correct the import path\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E2003"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "R002-duplicate-definition",
+      "category": "resolution",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R002-duplicate-definition",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E2002",
+            "file": "main.xy",
+            "line": 5
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R002-duplicate-definition/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R002-duplicate-definition"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:5:4: error[E2002] (name-resolution): duplicate definition of `main`\n  fn main() -> i32 {\n     ^^^^\n  cause: the module already declares function `main`\n  help: rename one of the definitions\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R002-duplicate-definition/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/resolution/R002-duplicate-definition",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:5:4: error[E2002] (name-resolution): duplicate definition of `main`\n  fn main() -> i32 {\n     ^^^^\n  cause: the module already declares function `main`\n  help: rename one of the definitions\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E2002"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "S001-shadowed-local-in-nested-block",
+      "category": "scopes",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S001-shadowed-local-in-nested-block",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "10\n20\n10\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S001-shadowed-local-in-nested-block/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S001-shadowed-local-in-nested-block"
+        }
+      ],
+      "observed": {
+        "stdout": "10\n20\n10\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S001-shadowed-local-in-nested-block/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S001-shadowed-local-in-nested-block",
+            "observed": {
+              "stdout": "10\n20\n10\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "S002-same-parameter-name-in-distinct-functions",
+      "category": "scopes",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S002-same-parameter-name-in-distinct-functions",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "8\n12\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S002-same-parameter-name-in-distinct-functions/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S002-same-parameter-name-in-distinct-functions"
+        }
+      ],
+      "observed": {
+        "stdout": "8\n12\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S002-same-parameter-name-in-distinct-functions/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/scopes/S002-same-parameter-name-in-distinct-functions",
+            "observed": {
+              "stdout": "8\n12\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "U001-multibyte-string-literals",
+      "category": "unicode",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U001-multibyte-string-literals",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "héllo\na界b🙂\n\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U001-multibyte-string-literals/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U001-multibyte-string-literals"
+        }
+      ],
+      "observed": {
+        "stdout": "héllo\na界b🙂\n\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U001-multibyte-string-literals/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U001-multibyte-string-literals",
+            "observed": {
+              "stdout": "héllo\na界b🙂\n\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    },
+    {
+      "id": "U002-crlf-multibyte-diagnostic-location",
+      "category": "unicode",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U002-crlf-multibyte-diagnostic-location",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E1003",
+            "file": "crlf-overflow.xy",
+            "line": 4
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "crlf-overflow.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U002-crlf-multibyte-diagnostic-location/crlf-overflow.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U002-crlf-multibyte-diagnostic-location"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "crlf-overflow.xy:4:22: error[E1003] (lexical): integer literal `18446744073709551616` does not fit the supported 64-bit unsigned range\n      let value: u64 = 18446744073709551616\n                       ^^^^^^^^^^^^^^^^^^^^\n  cause: integer literals must fit in an unsigned 64-bit magnitude\n  help: use a literal no larger than 18446744073709551615\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "crlf-overflow.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U002-crlf-multibyte-diagnostic-location/crlf-overflow.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/unicode/U002-crlf-multibyte-diagnostic-location",
+            "observed": {
+              "stdout": "",
+              "stderr": "crlf-overflow.xy:4:22: error[E1003] (lexical): integer literal `18446744073709551616` does not fit the supported 64-bit unsigned range\n      let value: u64 = 18446744073709551616\n                       ^^^^^^^^^^^^^^^^^^^^\n  cause: integer literals must fit in an unsigned 64-bit magnitude\n  help: use a literal no larger than 18446744073709551615\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E1003"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "V001-non-public-import-rejected",
+      "category": "visibility",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V001-non-public-import-rejected",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "rejected",
+        "output": "",
+        "output_match": "exact",
+        "diagnostics": [
+          {
+            "code": "E2004",
+            "file": "main.xy",
+            "line": 1
+          }
+        ]
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem check <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "check",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V001-non-public-import-rejected/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V001-non-public-import-rejected"
+        }
+      ],
+      "observed": {
+        "stdout": "",
+        "stderr": "main.xy:1:10: error[E2004] (name-resolution): `value` is private to module `lib`\n  import { value } from \"./lib\"\n           ^^^^^\n  cause: only `pub` items can be imported\n  help: mark the declaration `pub`, or remove the import\n",
+        "exit": 1,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem check <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "check",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V001-non-public-import-rejected/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V001-non-public-import-rejected",
+            "observed": {
+              "stdout": "",
+              "stderr": "main.xy:1:10: error[E2004] (name-resolution): `value` is private to module `lib`\n  import { value } from \"./lib\"\n           ^^^^^\n  cause: only `pub` items can be imported\n  help: mark the declaration `pub`, or remove the import\n",
+              "exit": 1,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": [
+              "E2004"
+            ]
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches rejected oracle"
+    },
+    {
+      "id": "V002-pub-struct-across-module",
+      "category": "visibility",
+      "case_dir": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V002-pub-struct-across-module",
+      "case_verification_status": "IMPLEMENTED",
+      "expected": {
+        "compile_status": "accepted",
+        "output": "5\n",
+        "output_match": "exact",
+        "diagnostics": []
+      },
+      "plan": [
+        {
+          "source": "main.xy",
+          "command_shape": "xylem run <file>",
+          "command": [
+            "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+            "run",
+            "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V002-pub-struct-across-module/main.xy"
+          ],
+          "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V002-pub-struct-across-module"
+        }
+      ],
+      "observed": {
+        "stdout": "5\n",
+        "stderr": "",
+        "exit": 0,
+        "runs": [
+          {
+            "source": "main.xy",
+            "command_shape": "xylem run <file>",
+            "command": [
+              "/home/philip/Development/version_2/xylem-lang/target/pinned-toolchain/artifacts/xylem.previous-7082acd9",
+              "run",
+              "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V002-pub-struct-across-module/main.xy"
+            ],
+            "cwd": "/home/philip/Development/version_2/ecosystem-worktrees/xylem-lang/independent-conformance/visibility/V002-pub-struct-across-module",
+            "observed": {
+              "stdout": "5\n",
+              "stderr": "",
+              "exit": 0,
+              "timed_out": false,
+              "error": null
+            },
+            "observed_diagnostic_codes": []
+          }
+        ]
+      },
+      "mismatches": [],
+      "status": "PASS",
+      "reason": "matches accepted oracle"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+# Shared ownership registry. VERIFY OWNERSHIP BEFORE ANY SHARED-FILE EDIT.
+registry_version: 1
+updated: "2026-11-25"
+integration_namespace: integration/ecosystem-readiness
+compact_rule: "If a file is not in an agent's allowed_write_paths, do not modify it."
+
+schema:
+  agent_id: string
+  squad: string
+  repository: string
+  branch: string
+  starting_revision: string
+  owned_files: [string]
+  allowed_write_paths: [string]
+  protected_dependencies: [string]
+  integration_owner: string
+  status: unassigned | in_progress | implemented_pending_verification | verified | blocked
+
+protected_dependencies: &protected
+  - native representation / primitive lowering
+  - integer machine ops / bitwise / wrapping / numeric constants
+  - canonical IR definitions / native ABI / memory layout
+  - native vector, map, string implementations
+  - ownership lowering / borrow analysis / refcount / COW
+  - LLVM lowering & optimization / compiler optimization passes
+  - runtime execution architecture
+  - benchmark harness & performance certification
+  - bootstrap implementation
+
+agents:
+  A001:
+    squad: A-coordination
+    repository: ecosystem-readiness
+    branch: n/a
+    starting_revision: n/a
+    owned_files: [README.md, CAMPAIGN_BACKLOG.md, ASSIGNMENTS.yaml]
+    allowed_write_paths: [ecosystem-readiness/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: in_progress
+  A002:
+    squad: A-coordination
+    repository: xylem-rust + xylem-lang
+    branch: integration/ecosystem-readiness
+    starting_revision: 28cd5cb / da35dfe
+    owned_files: [COMPATIBILITY_NOTES.md]
+    allowed_write_paths: [ecosystem-readiness/COMPATIBILITY_NOTES.md, toolchain tooling contract docs]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: in_progress
+  A003:
+    squad: A-coordination
+    repository: xylem-lang
+    branch: integration/ecosystem-readiness
+    starting_revision: da35dfe
+    owned_files: [implementation-status classifications]
+    allowed_write_paths: [ecosystem-readiness/, xylem-lang worktree docs (coordinated)]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: in_progress
+  A004:
+    squad: A-coordination
+    repository: all
+    branch: integration/ecosystem-readiness
+    starting_revision: see PINNED_DEPENDENCY.md
+    owned_files: [OWNERSHIP_REGISTRY.yaml, PROTECTED_AREAS.md, STATUS.md]
+    allowed_write_paths: [ecosystem-readiness/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: in_progress
+
+  # Task agents receive a concrete, reviewed work order and an isolated task
+  # worktree BEFORE status changes from unassigned. See WORK_ORDERS/DISPATCH_LOG.md.
+  # Branch namespace: task/ecosystem/<slug>, based on integration/ecosystem-readiness.
+  E052:
+    squad: E-conformance
+    repository: xylem-lang
+    branch: task/ecosystem/conformance
+    starting_revision: da35dfe
+    owned_files: [independent-conformance/**]
+    allowed_write_paths: [ecosystem-worktrees/task-conformance/independent-conformance/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: implemented_pending_verification
+    note: "Structure verified; 5 cases executed and promoted to IMPLEMENTED, 26 remain PENDING_VERIFICATION"
+  F064:
+    squad: F-documentation
+    repository: xylem-lang
+    branch: task/ecosystem/documentation
+    starting_revision: da35dfe
+    owned_files: [docs/language/guides/**]
+    allowed_write_paths: [ecosystem-worktrees/task-documentation/docs/language/guides/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+  G074:
+    squad: G-examples
+    repository: xylem-lang
+    branch: task/ecosystem/examples
+    starting_revision: da35dfe
+    owned_files: [examples/config-counter/**, examples/text-stats/**, examples/task-list/**, examples/ecosystem_examples_check.py]
+    allowed_write_paths: [ecosystem-worktrees/task-examples/examples/ (new dirs only)]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: implemented_pending_verification
+    note: "All three apps compiled/run with pinned compiler; expected outputs match byte-for-byte"
+  I100:
+    squad: I-platform
+    repository: xylem-platform
+    branch: task/ecosystem/platform
+    starting_revision: d5a08ae
+    owned_files: [crates/xylem-desktop/tests/layout_geometry.rs, crates/xylem-ui/tests/document_invariants.rs, docs/CRATE_STATUS.md]
+    allowed_write_paths: [ecosystem-worktrees/task-platform/ (those three paths)]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+  B016:
+    squad: B-language-server
+    repository: xylem-rust
+    branch: task/ecosystem/lsp
+    starting_revision: 28cd5cb
+    owned_files: [crates/xylem-toolchain/src/lsp.rs, crates/xylem-toolchain/tests/lsp_semantics.rs, crates/xylem-toolchain/tests/lsp_protocol.rs]
+    allowed_write_paths: [ecosystem-worktrees/task-lsp/ (owned files)]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+  C024:
+    squad: C-formatter
+    repository: xylem-rust
+    branch: task/ecosystem/formatter
+    starting_revision: 28cd5cb
+    owned_files: [crates/xylem-toolchain/src/formatter.rs, crates/xylem-toolchain/tests/formatter_contract.rs, crates/xylem-toolchain/tests/formatter_regression.rs]
+    allowed_write_paths: [ecosystem-worktrees/task-formatter/ (owned files)]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+  D035:
+    squad: D-developer-tooling
+    repository: xylem-rust
+    branch: task/ecosystem/cli
+    starting_revision: 28cd5cb
+    owned_files: [crates/xylem-cli/src/{main.rs,lib.rs,doctor.rs,completions.rs}, crates/xylem-cli/tests/{doctor_contract.rs,completions_contract.rs}]
+    allowed_write_paths: [ecosystem-worktrees/task-cli/ (owned files)]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+  H077:
+    squad: H-distribution
+    repository: xylem-rust
+    branch: task/ecosystem/distribution
+    starting_revision: 28cd5cb
+    owned_files: [distribution/**]
+    allowed_write_paths: [ecosystem-worktrees/task-distribution/distribution/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+  I091:
+    squad: I-platform
+    repository: xylem-platform
+    branch: task/ecosystem/platform-gpu
+    starting_revision: d5a08ae
+    owned_files: [crates/xylem-graphics-wgpu/**, docs GPU_LIFECYCLE.md]
+    allowed_write_paths: [ecosystem-worktrees/task-platform-gpu/ (owned paths)]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+
+  E051:
+    squad: E-conformance
+    repository: xylem-lang
+    branch: task/ecosystem/corpus-runner
+    starting_revision: f4d2a6e~1
+    owned_files: [independent-conformance/tools/run_corpus.py, independent-conformance/tools/test_run_corpus.py, independent-conformance/README.md]
+    allowed_write_paths: [ecosystem-worktrees/task-corpus-runner/independent-conformance/tools/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+    note: "8 oracle tests reproduced; dry-run over 31 cases only; no real compiler execution"
+  D027:
+    squad: D-developer-tooling
+    repository: xylem-rust
+    branch: task/ecosystem/init
+    starting_revision: 2c02944~1
+    owned_files: [crates/xylem-cli/src/init.rs, crates/xylem-cli/src/main.rs, crates/xylem-cli/src/completions.rs, crates/xylem-cli/tests/init_contract.rs]
+    allowed_write_paths: [ecosystem-worktrees/task-init/crates/xylem-cli/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+    note: "9 init + 7 completions tests reproduced; one extra owned file (completions.rs) authorized as single-source usage table"
+
+  B015:
+    squad: B-language-server
+    repository: xylem-rust
+    branch: task/ecosystem/lsp-features
+    starting_revision: b543aba
+    owned_files: [crates/xylem-toolchain/src/lsp.rs, crates/xylem-toolchain/tests/lsp_symbols.rs, crates/xylem-toolchain/tests/lsp_protocol.rs]
+    allowed_write_paths: [ecosystem-worktrees/task-lsp-features/crates/xylem-toolchain/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+    note: "10 protocol + 48 semantics + 9 symbol tests reproduced"
+  H082:
+    squad: H-distribution
+    repository: xylem-rust
+    branch: task/ecosystem/distribution-compat
+    starting_revision: 57a63f5~1
+    owned_files: [distribution/tools/sbom.py, distribution/tools/check_compatibility.py, distribution/tools/test_distribution_extra.py, distribution/SBOM_AND_COMPATIBILITY.md]
+    allowed_write_paths: [ecosystem-worktrees/task-distribution-compat/distribution/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: verified
+    note: "7 tests + 13/13 identity matches reproduced"
+
+  bench-tui:
+    squad: tooling
+    repository: xylem-lang
+    branch: task/ecosystem/bench-tui
+    starting_revision: 34d3320
+    owned_files: [tools/bench-tui/**]
+    allowed_write_paths: [ecosystem-worktrees/task-bench-tui/tools/bench-tui/]
+    protected_dependencies: *protected
+    integration_owner: A004
+    status: dispatched
+    note: "Xylem-only live benchmark TUI (D-007); no Python, no benchmark execution in verification"
+
+  # Not yet dispatched — remaining assignments from ASSIGNMENTS.yaml.
+  B005..B015:  { squad: B-language-server,  status: unassigned, protected_dependencies: *protected }
+  B012..B015_note: "signature help, semantic tokens, symbols and new LSP methods are deferred until B016 merges, to avoid two owners of lsp.rs"
+  C017..C023:  { squad: C-formatter,        status: unassigned, protected_dependencies: *protected }
+  D025..D034:  { squad: D-developer-tooling,status: unassigned, protected_dependencies: *protected }
+  D036:        { squad: D-developer-tooling,status: unassigned, protected_dependencies: *protected, note: "completions delivered by D035; workflow tests pending" }
+  E037..E051:  { squad: E-conformance,      status: unassigned, protected_dependencies: *protected }
+  F053..F063:  { squad: F-documentation,    status: unassigned, protected_dependencies: *protected }
+  G065..G076:  { squad: G-examples,         status: unassigned, protected_dependencies: *protected, note: "3 of 12 apps delivered by G074 first" }
+  H078..H088:  { squad: H-distribution,     status: unassigned, protected_dependencies: *protected }
+  I089..I090:  { squad: I-platform,         status: unassigned, protected_dependencies: *protected }
+  I092..I099:  { squad: I-platform,         status: unassigned, protected_dependencies: *protected }
+
+worktrees:
+  xylem-rust:     { branch: integration/ecosystem-readiness, path: ecosystem-worktrees/xylem-rust,     baseline: 28cd5cb }
+  xylem-lang:     { branch: integration/ecosystem-readiness, path: ecosystem-worktrees/xylem-lang,     baseline: da35dfe }
+  xylem-platform: { branch: integration/ecosystem-readiness, path: ecosystem-worktrees/xylem-platform, baseline: d5a08ae }
+  xylem-research: { status: excluded, reason: "active benchmark-harness WIP owned by performance campaign" }

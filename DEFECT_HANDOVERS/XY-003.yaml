@@ -1,0 +1,15 @@
+defect_id: XY-003
+kind: compiler_defect
+compiler_revision: "5ff0ba2a949aea8acb08fe5cc4e8a5dbd855dcc4 (pinned bootstrap sha256 7082acd9baf0d0370a84efd67f25ae3dab470dce4b0ba440f945b7687748704c)"
+invocation: "xylem check <reproducer> with XYLEM_STDLIB_ROOT=xylem-lang/stdlib/src"
+source: "reproducers/XY-003/or_continuation.xy"
+expected_behavior: "A binary `||` at the start of a continuation line after an expression should be parsed as the boolean OR operator, so `return a || b` type-checks as bool."
+observed_behavior: "error[E3004] function `either` returns `bool` but its body has type `fn() -> bool`. The leading `||` is parsed as an empty-parameter closure, not the binary operator. Independently reproduced by A004 with the pinned compiler."
+minimal_reproducer: "reproducers/XY-003/or_continuation.xy"
+specification_reference: "docs/language/grammar.ebnf (operator expressions); the same expression on one line checks cleanly."
+suspected_subsystem: "lexer / parser (source syntax of binary operators at line continuation) — compiler-owned"
+confidence: high
+responsible_team: compiler-maintenance
+discovered_by: L3 (reported), independently reproduced by A004
+status: handed_over
+notes: "Found while porting Lotus pure logic. Workaround in Xylem-source code is sequential if-arms; this is documented in the port, not a silent compiler fix. No protected compiler file was edited. Requested: parse a leading `||` as a binary operator when it continues a preceding expression."

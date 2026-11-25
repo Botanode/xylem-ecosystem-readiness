@@ -1,0 +1,14 @@
+defect_id: XY-001
+compiler_revision: "5ff0ba2a949aea8acb08fe5cc4e8a5dbd855dcc4 (pinned bootstrap artifact sha256 7082acd9baf0d0370a84efd67f25ae3dab470dce4b0ba440f945b7687748704c)"
+invocation: "xylem check /tmp reproducer -- XYLEM_STDLIB_ROOT=xylem-lang/stdlib/src"
+source: "reproducers/XY-001/ownership_two_returns.xy"
+expected_behavior: "Both branches return the same owned `String` after an earlier immutable borrow (`split(&value, &slash)`) that is no longer live at either return. The borrow ends before control reaches either return, and each path returns exactly once, so the function should check successfully. The control case `ownership_one_return.xy` (identical borrow, one return of `value`) checks cleanly."
+observed_behavior: "error[E3101] (ownership): use of moved value `value` at the second `return value` (line 9). The first branch and the control case are accepted."
+minimal_reproducer: "reproducers/XY-001/ownership_two_returns.xy"
+specification_reference: "docs/language/contract.md §5 (Ownership and borrowing); E3101 is documented as use-after-move, not a forbidden double return on disjoint branches."
+suspected_subsystem: "ownership lowering / borrow analysis (PROTECTED)"
+confidence: high
+responsible_team: compiler-performance
+discovered_by: P001 (author), independently reproduced by A004
+status: handed_over
+notes: "Found while building examples/web-router/src/router.xy::request_path. The example restructures to a single return of a local copy (documented in its README limitations) solely to avoid this false positive; this handover records the actual defect. No protected compiler file was edited. Further reduction and a regression fixture for the compiler team are requested."

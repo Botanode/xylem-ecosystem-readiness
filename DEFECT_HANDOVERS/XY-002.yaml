@@ -1,0 +1,15 @@
+defect_id: XY-002
+kind: interface_request
+compiler_revision: "5ff0ba2a949aea8acb08fe5cc4e8a5dbd855dcc4 (pinned bootstrap sha256 7082acd9baf0d0370a84efd67f25ae3dab470dce4b0ba440f945b7687748704c)"
+invocation: "xylem check /tmp/opencode/url_import_probe.xy with XYLEM_STDLIB_ROOT set to the worktree stdlib"
+source: "stdlib/src/std/web/url.xy, stdlib/src/std/web/html.xy (new modules in task/ecosystem/web-primitives)"
+expected_behavior: "A module present under XYLEM_STDLIB_ROOT/std/web/ should be importable by its canonical path `std/web/url`, as the other 22 stdlib modules are."
+observed_behavior: "error[E2003] cannot resolve import path `std/web/url`; cause: imported module not found relative to this file. Independently reproduced by A004. The pinned Rust CLI appears to compile the stdlib inventory (xylem_stdlib::MODULES, 22 entries) into the binary, so adding a .xy file to stdlib/src/std/web is not enough."
+minimal_reproducer: "import { percent_encode } from \"std/web/url\"\nfn main() -> i32 { print(percent_encode(\"a b\")); return 0 }"
+specification_reference: "docs/language/contract.md §6 (Modules/imports) and §14 (Standard library inventory)"
+suspected_subsystem: "standard-library inventory / module resolution (compiler-owned; protected)"
+confidence: high
+responsible_team: compiler-maintenance
+discovered_by: W001 (author), independently reproduced by A004
+status: handed_over
+notes: "Local adapter: examples/web-framework imports the new modules by relative path and documents the canonical-path switch once the inventory is refreshed. This is not a silent workaround. No protected compiler file was changed. Requested: either refresh the compiled-in inventory when stdlib modules are added, or make XYLEM_STDLIB_ROOT authoritative for module resolution."

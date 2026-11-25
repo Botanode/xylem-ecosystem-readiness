@@ -1,0 +1,29 @@
+agent_id: ""
+squad: ""
+repository: ""
+starting_revision: ""
+branch: task/ecosystem/<slug>
+objective: ""                  # one specific, testable outcome
+owned_files: []
+allowed_write_paths: []
+protected_areas: []            # see PROTECTED_AREAS.md
+existing_implementation: ""    # exact file(s) inspected; extend, do not duplicate
+required_changes: []
+required_tests: []
+required_verification: ""      # focused command(s) OR IMPLEMENTED / PENDING_VERIFICATION
+dependencies: []
+acceptance_criteria: []
+integration_owner: A004
+completion_record:
+  baseline_revision: ""
+  candidate_revision: ""
+  files_modified: []
+  implemented_functionality: ""
+  existing_infrastructure_reused: ""
+  tests_written: []
+  tests_executed: []
+  verification_results: ""
+  known_limitations: []
+  protected_areas_modified: []
+  compiler_interface_requests: []
+  integration_status: ""

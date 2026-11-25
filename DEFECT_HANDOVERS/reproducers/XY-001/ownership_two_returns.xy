@@ -1,0 +1,16 @@
+// XY-001 minimal reproducer. Pinned compiler 5ff0ba2 rejects the second return.
+import { split } from "std/strings"
+
+fn pick(value: String, flag: bool) -> String effects [allocation] {
+    let slash = "/"
+    let parts = split(&value, &slash)
+    if flag {
+        return value
+    }
+    return value
+}
+
+fn main() -> i32 effects [allocation] {
+    print(pick("a/b", true))
+    return 0
+}

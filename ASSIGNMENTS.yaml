@@ -1,0 +1,127 @@
+# 100 specialist assignments. Division of responsibility, NOT 100 concurrent processes.
+# status: unassigned -> dispatched -> implemented_pending_verification -> verified
+campaign: ecosystem-readiness
+integration_namespace: integration/ecosystem-readiness
+task_namespace: task/ecosystem/<slug>
+concurrency_cap: "set by host resources; exploration cheap, builds/tests focused & isolated"
+
+squads:
+  A: { name: coordination-and-contracts, count: 4 }
+  B: { name: language-server,            count: 12 }
+  C: { name: formatter,                  count: 8  }
+  D: { name: developer-tooling,          count: 12 }
+  E: { name: independent-conformance,    count: 16 }
+  F: { name: documentation,              count: 12 }
+  G: { name: example-applications,       count: 12 }
+  H: { name: distribution,               count: 12 }
+  I: { name: platform-ecosystem,         count: 12 }
+
+assignments:
+  - { id: A001, squad: A, repo: ecosystem-readiness, title: "Campaign orchestrator: backlog, protected areas, allocation, dependencies, dedup, integration", status: in_progress }
+  - { id: A002, squad: A, repo: xylem-rust+lang, title: "Developer tooling authority: stable interfaces, Rust/self-hosted compatibility, LSP+formatter contracts", status: in_progress }
+  - { id: A003, squad: A, repo: xylem-lang, title: "Conformance/documentation authority: docs match spec, examples use supported features, status classification", status: in_progress }
+  - { id: A004, squad: A, repo: all, title: "Integration/resource authority: isolated branches, shared-file ownership, benchmark isolation, handovers", status: in_progress }
+
+  - { id: B005,  squad: B, repo: xylem-rust+lang, title: "LSP document lifecycle and synchronization", status: unassigned }
+  - { id: B006,  squad: B, repo: xylem-rust, title: "Position encoding and source ranges (UTF-8/UTF-16/Unicode)", status: unassigned }
+  - { id: B007,  squad: B, repo: xylem-rust+lang, title: "Context-aware completion", status: unassigned }
+  - { id: B008,  squad: B, repo: xylem-rust, title: "Hover information", status: unassigned }
+  - { id: B009,  squad: B, repo: xylem-rust, title: "Go-to-definition / declaration", status: unassigned }
+  - { id: B010,  squad: B, repo: xylem-rust, title: "Find references", status: unassigned }
+  - { id: B011,  squad: B, repo: xylem-rust, title: "Rename symbol (scope-safe, resolved identity)", status: unassigned }
+  - { id: B012,  squad: B, repo: xylem-rust, title: "Signature help", status: unassigned }
+  - { id: B013,  squad: B, repo: xylem-rust, title: "Semantic highlighting", status: unassigned }
+  - { id: B014,  squad: B, repo: xylem-rust, title: "Diagnostics and code actions", status: unassigned }
+  - { id: B015,  squad: B, repo: xylem-rust, title: "Workspace navigation and indexing", status: unassigned }
+  - { id: B016,  squad: B, repo: xylem-rust+lang, title: "Editor integration and protocol verification", status: unassigned }
+
+  - { id: C017, squad: C, repo: xylem-rust, title: "Formatter architecture and configuration", status: unassigned }
+  - { id: C018, squad: C, repo: xylem-rust, title: "Whitespace, indentation and line endings", status: unassigned }
+  - { id: C019, squad: C, repo: xylem-rust, title: "Expressions and operator formatting", status: unassigned }
+  - { id: C020, squad: C, repo: xylem-rust, title: "Declarations and function formatting", status: unassigned }
+  - { id: C021, squad: C, repo: xylem-rust, title: "Structures, enums and pattern matching", status: unassigned }
+  - { id: C022, squad: C, repo: xylem-rust, title: "Imports and module formatting", status: unassigned }
+  - { id: C023, squad: C, repo: xylem-rust, title: "Comments and documentation preservation", status: unassigned }
+  - { id: C024, squad: C, repo: xylem-rust, title: "Formatter regression and idempotence testing", status: unassigned }
+
+  - { id: D025, squad: D, repo: xylem-rust, title: "CLI architecture and command consistency", status: unassigned }
+  - { id: D026, squad: D, repo: xylem-rust, title: "Help and command discovery", status: unassigned }
+  - { id: D027, squad: D, repo: xylem-rust, title: "Project initialization (new/init templates)", status: unassigned }
+  - { id: D028, squad: D, repo: xylem-rust, title: "Project configuration", status: unassigned }
+  - { id: D029, squad: D, repo: xylem-rust, title: "Build-command usability", status: unassigned }
+  - { id: D030, squad: D, repo: xylem-rust, title: "Test-command usability", status: unassigned }
+  - { id: D031, squad: D, repo: xylem-rust, title: "Human-readable diagnostics", status: unassigned }
+  - { id: D032, squad: D, repo: xylem-rust, title: "Machine-readable diagnostics", status: unassigned }
+  - { id: D033, squad: D, repo: xylem-rust, title: "Source and module inspection", status: unassigned }
+  - { id: D034, squad: D, repo: xylem-rust, title: "Documentation generation", status: unassigned }
+  - { id: D035, squad: D, repo: xylem-rust, title: "Environment and toolchain doctor", status: unassigned }
+  - { id: D036, squad: D, repo: xylem-rust, title: "Shell integration and developer workflow tests", status: unassigned }
+
+  - { id: E037,  squad: E, repo: xylem-lang, title: "Module and import conformance", status: unassigned }
+  - { id: E038,  squad: E, repo: xylem-lang, title: "Name resolution", status: unassigned }
+  - { id: E039,  squad: E, repo: xylem-lang, title: "Scope and shadowing", status: unassigned }
+  - { id: E040,  squad: E, repo: xylem-lang, title: "Function declarations", status: unassigned }
+  - { id: E041,  squad: E, repo: xylem-lang, title: "Visibility and encapsulation", status: unassigned }
+  - { id: E042,  squad: E, repo: xylem-lang, title: "Generic declaration behavior", status: unassigned }
+  - { id: E043,  squad: E, repo: xylem-lang, title: "Pattern matching", status: unassigned }
+  - { id: E044,  squad: E, repo: xylem-lang, title: "Control-flow semantics", status: unassigned }
+  - { id: E045,  squad: E, repo: xylem-lang, title: "Diagnostic consistency", status: unassigned }
+  - { id: E046,  squad: E, repo: xylem-lang, title: "Invalid source handling", status: unassigned }
+  - { id: E047,  squad: E, repo: xylem-lang, title: "Source locations and Unicode", status: unassigned }
+  - { id: E048,  squad: E, repo: xylem-lang, title: "Multi-file compilation", status: unassigned }
+  - { id: E049,  squad: E, repo: xylem-lang, title: "Deterministic compiler diagnostics", status: unassigned }
+  - { id: E050,  squad: E, repo: xylem-lang, title: "Metamorphic testing", status: unassigned }
+  - { id: E051,  squad: E, repo: xylem-lang, title: "Independent generated-program fixtures", status: unassigned }
+  - { id: E052,  squad: E, repo: xylem-lang, title: "Corpus organization and reproducibility", status: unassigned }
+
+  - { id: F053, squad: F, repo: xylem-lang, title: "Language documentation architecture", status: unassigned }
+  - { id: F054, squad: F, repo: xylem-lang, title: "Getting started", status: unassigned }
+  - { id: F055, squad: F, repo: xylem-lang, title: "Basic syntax and expressions", status: unassigned }
+  - { id: F056, squad: F, repo: xylem-lang, title: "Functions and modules", status: unassigned }
+  - { id: F057, squad: F, repo: xylem-lang, title: "Type system", status: unassigned }
+  - { id: F058, squad: F, repo: xylem-lang, title: "Ownership and borrowing", status: unassigned }
+  - { id: F059, squad: F, repo: xylem-lang, title: "Error handling and pattern matching", status: unassigned }
+  - { id: F060, squad: F, repo: xylem-lang, title: "Standard-library reference", status: unassigned }
+  - { id: F061, squad: F, repo: xylem-lang, title: "Effects and capabilities", status: unassigned }
+  - { id: F062, squad: F, repo: xylem-lang, title: "Determinism, concurrency and phases", status: unassigned }
+  - { id: F063, squad: F, repo: xylem-lang, title: "Compiler and tooling documentation", status: unassigned }
+  - { id: F064, squad: F, repo: xylem-lang, title: "Tutorials and documentation verification", status: unassigned }
+
+  - { id: G065, squad: G, repo: xylem-lang, title: "Command-line argument processor example", status: unassigned }
+  - { id: G066, squad: G, repo: xylem-lang, title: "Text-processing utility example", status: unassigned }
+  - { id: G067, squad: G, repo: xylem-lang, title: "CSV processing application example", status: unassigned }
+  - { id: G068, squad: G, repo: xylem-lang, title: "Structured configuration reader example", status: unassigned }
+  - { id: G069, squad: G, repo: xylem-lang, title: "Numerical statistics application example", status: unassigned }
+  - { id: G070, squad: G, repo: xylem-lang, title: "Task or inventory manager example", status: unassigned }
+  - { id: G071, squad: G, repo: xylem-lang, title: "File-processing utility example", status: unassigned }
+  - { id: G072, squad: G, repo: xylem-lang, title: "Graph traversal application example", status: unassigned }
+  - { id: G073, squad: G, repo: xylem-lang, title: "Multi-module library example", status: unassigned }
+  - { id: G074, squad: G, repo: xylem-lang, title: "Data transformation pipeline example", status: unassigned }
+  - { id: G075, squad: G, repo: xylem-lang, title: "Deterministic simulation example", status: unassigned }
+  - { id: G076, squad: G, repo: xylem-lang, title: "ECS-style scene/entity simulation example (where supported)", status: unassigned }
+
+  - { id: H077, squad: H, repo: xylem-rust+lang, title: "Toolchain artifact manifest", status: unassigned }
+  - { id: H078, squad: H, repo: xylem-rust+lang, title: "Version compatibility", status: unassigned }
+  - { id: H079, squad: H, repo: xylem-rust+lang, title: "Release directory structure", status: unassigned }
+  - { id: H080, squad: H, repo: xylem-rust+lang, title: "Installation tooling", status: unassigned }
+  - { id: H081, squad: H, repo: xylem-rust+lang, title: "Uninstallation and rollback", status: unassigned }
+  - { id: H082, squad: H, repo: xylem-rust+lang, title: "Artifact integrity", status: unassigned }
+  - { id: H083, squad: H, repo: xylem-rust+lang, title: "Dependency discovery", status: unassigned }
+  - { id: H084, squad: H, repo: xylem-rust, title: "Portable Linux distribution", status: unassigned }
+  - { id: H085, squad: H, repo: xylem-rust, title: "macOS distribution preparation", status: unassigned }
+  - { id: H086, squad: H, repo: xylem-rust, title: "Windows distribution preparation", status: unassigned }
+  - { id: H087, squad: H, repo: xylem-rust+lang, title: "Reproducible release instructions", status: unassigned }
+  - { id: H088, squad: H, repo: xylem-rust+lang, title: "Installation and distribution verification", status: unassigned }
+
+  - { id: I089,  squad: I, repo: xylem-platform, title: "Platform architecture and API consistency", status: unassigned }
+  - { id: I090,  squad: I, repo: xylem-platform, title: "Graphics abstractions", status: unassigned }
+  - { id: I091,  squad: I, repo: xylem-platform, title: "GPU resource lifecycle", status: unassigned }
+  - { id: I092,  squad: I, repo: xylem-platform, title: "Graphics error handling and diagnostics", status: unassigned }
+  - { id: I093,  squad: I, repo: xylem-platform, title: "UI layout", status: unassigned }
+  - { id: I094,  squad: I, repo: xylem-platform, title: "UI event handling", status: unassigned }
+  - { id: I095,  squad: I, repo: xylem-platform, title: "Desktop application lifecycle", status: unassigned }
+  - { id: I096,  squad: I, repo: xylem-platform, title: "Input and window events", status: unassigned }
+  - { id: I097,  squad: I, repo: xylem-platform, title: "Compositor interfaces", status: unassigned }
+  - { id: I098,  squad: I, repo: xylem-platform, title: "Web integration", status: unassigned }
+  - { id: I099,  squad: I, repo: xylem-platform, title: "Platform examples and integration fixtures", status: unassigned }
+  - { id: I100,  squad: I, repo: xylem-platform, title: "Platform documentation and verification", status: unassigned }
