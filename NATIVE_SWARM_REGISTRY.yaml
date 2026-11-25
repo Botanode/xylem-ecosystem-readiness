@@ -64,10 +64,10 @@ tasks:
       no leak or double-free; full pinned suites green with substitution on
       and with rollback.
   - id: NAT-02
-    area: closure thunks
-    status: OPEN
-    owner: null
-    worktree: null
+    area: verified closure thunk facts
+    status: ASSIGNED
+    owner: NAT-02 (session subagent)
+    worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-closure-native
     files: [crates/xylem-llvm/src/native_closure.rs, crates/xylem-llvm/src/lower_emit/call.rs]
     depends_on: []
     acceptance: >-
@@ -88,18 +88,18 @@ tasks:
       Reduce remaining xylem_rt_a_cell/frame sites with authority-backed facts;
       preserve trap order and drop semantics; pinned suites green.
   - id: NAT-04
-    area: enum/Option native lowering
-    status: OPEN
-    owner: null
-    worktree: null
+    area: verified enum/Option site authority
+    status: ASSIGNED
+    owner: NAT-04 (session subagent)
+    worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-enum-native
     files: [crates/xylem-llvm/src/native_enum.rs]
     depends_on: []
     acceptance: Native niche/dense layouts with verified consumers.
   - id: NAT-05
-    area: Cranelift representation parity
-    status: OPEN
-    owner: null
-    worktree: null
+    area: Cranelift VecIndex checked:false parity
+    status: ASSIGNED
+    owner: NAT-05 (session subagent)
+    worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-cranelift-parity
     files: [crates/xylem-native/src/cranelift_full.rs]
     depends_on: []
     acceptance: >-
