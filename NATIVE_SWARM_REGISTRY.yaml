@@ -89,8 +89,8 @@ tasks:
       preserve trap order and drop semantics; pinned suites green.
   - id: NAT-04
     area: verified enum/Option site authority
-    status: REASSIGNED
-    owner: coordinator (agent usage limit)
+    status: INTEGRATED
+    owner: coordinator
     owner: NAT-04 (session subagent)
     worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-enum-native
     files: [crates/xylem-llvm/src/native_enum.rs]
@@ -98,8 +98,8 @@ tasks:
     acceptance: Native niche/dense layouts with verified consumers.
   - id: NAT-05
     area: Cranelift VecIndex checked:false parity
-    status: REASSIGNED
-    owner: coordinator (agent usage limit)
+    status: INTEGRATED
+    owner: coordinator
     owner: NAT-05 (session subagent)
     worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-cranelift-parity
     files: [crates/xylem-native/src/cranelift_full.rs]
