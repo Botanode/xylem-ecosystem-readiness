@@ -54,7 +54,10 @@ tasks:
     progress: >-
       Opt-in consumer wired for fully cancelled release-only fragments at
       explicit Drop sites; default emits every helper. Remaining fragments
-      (inline load, store-with-free) need RcEventInput descriptors.
+      (inline load, store-with-free) need RcEventInput descriptors recorded
+      in emission order at cell_get_fast / cell_set_fast; the stream is
+      currently built once from canonical drops before lowering, so this
+      requires a stream-builder migration, not a local patch.
     note: >-
       Coordinator took ownership of native_wiring.rs; substitution stays
       fail-closed until fragment wiring and differential checks pass.
@@ -68,20 +71,33 @@ tasks:
       and with rollback.
   - id: NAT-02
     area: verified closure thunk facts
-    status: INTEGRATED
+    status: PARTIAL
+    audited: 2026-11-26
+    audit: >-
+      CORRECTED from INTEGRATED. Commit e53c650 added the production facts and
+      the closure arms compute `_closure_capture_native` / `_closure_call_native`
+      and DISCARD the result. Emitted IR is identical with
+      XYLEM_LLVM_NATIVE_CLOSURE on and off; see wiki/decisions/inert-wiring.md.
     wiring: >-
       production_closure_facts(&[]) replaces facts_from_verified(&[]) in
       native_wiring; with no verified thunk bodies every closure stays boxed.
-    owner: NAT-02 (session subagent)
+    owner: null
     worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-closure-native
     files: [crates/xylem-llvm/src/native_closure.rs, crates/xylem-llvm/src/lower_emit/call.rs]
     depends_on: []
     acceptance: >-
       Verified thunk bodies, native environment word, call and drop; rollback
-      keeps every unproven closure boxed.
+      keeps every unproven closure boxed. TEST: a lower-once/toggle-gate test
+      proving the closure arms change emitted IR, as
+      tests/native_enum_wiring.rs does for enums.
   - id: NAT-03
     area: frame/cell/box elimination
-    status: OPEN
+    status: BLOCKED
+    blocker: >-
+      External verification still active: T-DOMPHI-FIX / T-FRAMES-FIX /
+      T-VECABI-HOOK remain implemented_pending_verification, with
+      task-authority/full_lower.rs and native_ref_producer.rs changing at 03:09
+      and a pinned cargo test process still running.
     blocker: >-
       Owned by active external agents T-DOMPHI-FIX / T-FRAMES-FIX /
       T-VECABI-HOOK. Do not edit repr.rs, native_cell_plan.rs, native_frame.rs,
@@ -95,16 +111,26 @@ tasks:
       preserve trap order and drop semantics; pinned suites green.
   - id: NAT-04
     area: verified enum/Option site authority
-    status: INTEGRATED
+    status: PARTIAL
+    audited: 2026-11-26
+    audit: >-
+      CORRECTED from INTEGRATED. The integration branch only calls
+      `let _enum_authority = self.enum_site_proven(dest);` at full_lower.rs:5279
+      and never branches on it, so emitted IR is unchanged with the gate on.
+      A REAL implementation exists uncommitted on task/native-enum-native
+      (3 source files + tests/native_enum_wiring.rs, all gates green). It needs
+      porting onto the integration branch's seam, not re-implementation.
     wiring: >-
-      FunctionWiring carries enum_facts + enum_site_evidence; full_lower
-      queries one fail-closed enum_site_proven seam, false by default.
+      Integration target: replace the inert enum_site_proven bool with the
+      NativeEnumSiteAuthority carried through lower_function, sized slots, and
+      working Variant/Extract/IsVariant arms. See wiki/subsystems/enum.md.
     owner: coordinator
-    owner: NAT-04 (session subagent)
     worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-enum-native
     files: [crates/xylem-llvm/src/native_enum.rs]
     depends_on: []
-    acceptance: Native niche/dense layouts with verified consumers.
+    acceptance: >-
+      Native niche/dense layouts with verified consumers, proved by a
+      gate-toggles-IR test on the integration branch.
   - id: NAT-05
     area: Cranelift VecIndex checked:false parity
     status: INTEGRATED
