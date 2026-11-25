@@ -37,6 +37,13 @@ As of `task/native-vec-default@e53c650`, per `NATIVE_SWARM_REGISTRY.yaml`:
   `native_aggregate_guard`, `native_collection_helpers`, `native_place_impl`,
   `sw009_prims_wiring`); all five reproduce with `XYLEM_LLVM_NATIVE_ENUM=0`
   and are inherited from `e53c650`, not introduced by the default flip.
+- Closure verification is now genuinely wired on
+  `task/native-integrated@1dd3e7e` (on top of the enum work). A proof pass
+  verifies the emitted thunk bodies and builds production facts from them;
+  the gate changes emitted IR and the gate-toggling test proves it. Both gate
+  states pass the closure suites (43 tests each). It remains **opt-in**:
+  native drop RC balance is not yet differentially proven, coverage is
+  direct-call/direct-drop only, and construction still emits cell helpers.
 - Baselines: `--lib` 171 passed, `cross_backend_differential` 4/4,
   `p0_abi_verifier` 23/23.
 
