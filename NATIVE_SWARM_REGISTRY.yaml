@@ -198,3 +198,14 @@ consolidation:
     RC descriptor work merged (afbf63f). Continue frame/cell facts and RC
     inline-load/store fragment consumption; task/native-vec-default remains
     contested by external agents, so task/native-integration is authoritative.
+
+main_integration:
+  status: COMPLETE
+  heads:
+    xylem-rust: 6f17b59
+    xylem-lang: be737aa
+    xylem-platform: 47730c4
+  cleanup: >-
+    All clean/merged task worktrees removed; all merged local and remote task
+    branches deleted from the three repos. Two worktrees remain active because
+    pinned verification processes are still running in them.
