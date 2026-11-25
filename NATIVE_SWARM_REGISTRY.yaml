@@ -176,7 +176,7 @@ tasks:
 consolidation:
   status: VERIFIED_MERGED
   branch: task/native-consolidation
-  head: 44cc8f1
+  head: afbf63f
   parents: [8704b11, 7c7cb2a]
   decisions: >-
     Kept docs/ and deleted test files from the integration side; resolved two
@@ -189,5 +189,6 @@ consolidation:
     cross_backend_differential 4/4, p0_abi_verifier 23/23,
     j063_generic_spec 7/7, n07_parity 3/3.
   next: >-
-    Fast-forward task/native-vec-default to this merge once external agents
-    release that worktree, then continue RC/frame/cell activation.
+    RC descriptor work merged (afbf63f). Continue frame/cell facts and RC
+    inline-load/store fragment consumption; task/native-vec-default remains
+    contested by external agents, so task/native-integration is authoritative.
