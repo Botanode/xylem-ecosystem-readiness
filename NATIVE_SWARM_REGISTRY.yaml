@@ -109,7 +109,11 @@ tasks:
       no silent fallback when LLVM is selected.
   - id: NAT-06
     area: consolidation / obsolete code removal
-    status: OPEN
+    status: PARTIAL
+    progress: >-
+      Stale "not declared / not compiled / not tested" claims removed from
+      native_rc_events.rs, native_enum_lower.rs and h048_rc.rs; all affected
+      suites green. Remaining scanner consolidation depends on external owners.
     owner: null
     worktree: null
     files: []
