@@ -35,6 +35,12 @@ registry here and in the yaml.
   `WIRE_GUIDE` consts are gone from the integration branch but still present on
   `task/native-enum-native`, where the guide was superseded by a real
   implementation.
+- **2026-11-26** — NAT-04 is no longer PARTIAL. The real authority was ported
+  from `task/nat-enum-port` into `task/native-vec-default`, the three enum arms
+  consume it, and the gate is default-on with `=0` rollback. Verified by
+  gate-toggling IR tests and the enum/differential suites. Status `VERIFIED`
+  pending independent confirmation; the five discarded-result placeholders and
+  the legacy enum scanner were deleted rather than left as false canaries.
 
 ## Reading task state quickly
 

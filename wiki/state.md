@@ -25,7 +25,12 @@ As of `task/native-vec-default@e53c650`, per `NATIVE_SWARM_REGISTRY.yaml`:
 - Typed I64 map insert/remove — `i060_map` 10/10, `impl_map` 10/10.
 - Owned string compare — `sw087_string` 16/16, `impl_string` 10/10.
 - Generic layout bridge + adapter bodies — `j063_generic_spec` 7/7.
-- Baselines: `--lib` 169 passed, `cross_backend_differential` 4/4,
+- Enum / Option site authority — default-on as of 2026-11-26. Gate-toggling
+  IR tests `native_authority_wiring` 4/4 and `native_enum_wiring` 3/3;
+  `sw311_enum` 22/22, `e029_enums` 14/14, `t07_option` 4/4. The boxed path is
+  restored by `XYLEM_LLVM_NATIVE_ENUM=0`. The legacy per-function enum scanner
+  and its unused `FunctionWiring` field were removed.
+- Baselines: `--lib` 171 passed, `cross_backend_differential` 4/4,
   `p0_abi_verifier` 23/23.
 
 ## The central problem: inert wiring
@@ -49,13 +54,13 @@ Verified with the enum case on 2026-11-26: the branch's `enum_site_proven`
 returns a bool that no arm branches on, so the emitted IR is identical with
 `XYLEM_LLVM_NATIVE_ENUM=1` and unset.
 
-## Work completed but not integrated
-
-On 2026-11-26 the Enum site authority was genuinely wired to emission on
-`task/native-enum-native` (uncommitted, 3 source files + 1 test file). It
-replaces the boxed `a_variant`/`a_extract`/`a_is_variant` helpers at proved
-sites, plans correctly sized `[N x i64]` slots, and keeps rollback
-byte-identical. See [subsystems/enum.md](subsystems/enum.md).
+Resolved for the enum on 2026-11-26: the real implementation from
+`task/nat-enum-port` was integrated into `task/native-vec-default` and now
+drives the `Variant` / `Extract` / `IsVariant` arms through one program-wide
+`NativeEnumSiteAuthority`. The gate-toggling tests prove the emitted IR changes;
+the legacy scanner and all five discarded-result placeholders were deleted, not
+renamed. See [subsystems/enum.md](subsystems/enum.md). The closure and RC
+placeholders remain fail-closed and are tracked in the registry.
 
 ## Blockers
 
@@ -66,3 +71,27 @@ files must not be edited: `T-DOMPHI-FIX` (`repr.rs`, `native_cell_plan.rs`),
 were described as working in `/tmp/opencode/swarm/...`, which is outside this
 workspace and cannot be inspected. Treat their file sets as read-only until the
 registry says otherwise.
+
+## Update — branches moved under the coordinator (2026-11-26)
+
+During the session the repository owner committed directly to the campaign
+branches, in parallel with agent work:
+
+- `task/native-vec-default@8704b11` — "record canonical cell RC descriptors in
+  the audited event stream". Contains the enum port identically to
+  `task/nat-enum-port@5a60ffc` (zero diff on the enum files).
+- `task/native-final@795fa55` — "default native enum lowering and remove inert
+  wiring". Defaults `XYLEM_LLVM_NATIVE_ENUM` ON with `0`/`false`/`off` as the
+  rollback, and adds the `xylem_rt_a_map_insert_i64_bits` line to
+  `tests/box_census.tsv`, which became reachable once enum lowering went live.
+
+Uncommitted edits held in `task-native-vec-default` were discarded on discovery,
+because `8704b11` already contained the same work. **Lesson: run
+`git log --oneline -3` on the target worktree before editing or merging into it;
+the owner commits directly.**
+
+Verification on `task/native-final@795fa55`, run 2026-11-26 with the gate at its
+new default: `--lib` 169, `native_authority_wiring` 4, `native_enum_wiring` 3,
+`sw311_enum` 14, `e029_enums` 22, plus `t07_option`, `cross_backend_differential`,
+`p0_abi_verifier`, `impl_struct`, `box_justification`, `a004_wiring_consistency`,
+and the same three enum suites again under `XYLEM_LLVM_NATIVE_ENUM=0`.

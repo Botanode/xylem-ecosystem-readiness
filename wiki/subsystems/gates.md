@@ -18,12 +18,12 @@ Environment switches read at lowering time in
 | `XYLEM_LLVM_NATIVE_MAP_TYPED` | plan-level | Typed I64 map insert/remove. |
 | `XYLEM_LLVM_GENERAL_NATIVE` | `general_native_enabled` | General native storage. |
 | `XYLEM_LLVM_FRAME_ELISION` | `frame_elision_enabled` | Frame elision. |
+| `XYLEM_LLVM_NATIVE_ENUM` | `NativeEnumFacts::from_env` | Enum / Option native lowering (2026-11-26). |
 
 ## Default OFF (opt-in with `=1`)
 
 | Switch | Covers |
 | --- | --- |
-| `XYLEM_LLVM_NATIVE_ENUM` | Enum / Option native lowering. |
 | `XYLEM_LLVM_NATIVE_CLOSURE` | Closure environments and thunks. |
 | `XYLEM_LLVM_NATIVE_PLACE` | Mutable field-place borrows. |
 | `XYLEM_LLVM_NATIVE_REF_ABI` | Reference ABI. |

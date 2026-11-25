@@ -9,6 +9,7 @@ Written for the next session; every claim is dated or cites a commit.
 | Page | Summary |
 | --- | --- |
 | [state.md](state.md) | Where the campaign stood on 2026-11-26: what is verified, what is inert, what blocks. |
+| [measurement.md](measurement.md) | Honest progress indicators, and why the `AValue` count is not one. |
 | [failures.md](failures.md) | Recurring failure modes that waste agent sessions, and the check that catches each. |
 
 ## Decisions

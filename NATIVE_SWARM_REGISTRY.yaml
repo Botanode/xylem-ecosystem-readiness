@@ -15,12 +15,17 @@ external_active_owners:
   - id: T-VECABI-HOOK
     files: [native_wiring.rs, native_prims.rs, lower_emit/vec_get.rs, vecabi canaries]
     note: In progress in /tmp/opencode/swarm/vecabi; DO NOT ASSIGN.
-  source: .mission/task_registry.yaml wave native-swarm-integration-2
+
+external_owners_source: ".mission/task_registry.yaml wave native-swarm-integration-2"
 
 coordinator:
-  integration_branch: task/native-vec-default
+  integration_branch: task/native-final
   integration_repo: xylem-rust
-  current_head: 149e525
+  current_head: 795fa55
+  integration_history: >-
+    task/native-vec-default@8704b11 carries the enum port; task/native-final@795fa55
+    sits on top and defaults the enum gate ON. Verified by the coordinator on
+    2026-11-26 (14 suite runs, 0 failures, rollback included).
   verified_default_native:
     - native vec mutation (impl_vec 8/8, rollback 8/8)
     - typed I64 map insert/remove (i060_map 10/10, impl_map 10/10, rollback 10/10)
@@ -111,23 +116,32 @@ tasks:
       preserve trap order and drop semantics; pinned suites green.
   - id: NAT-04
     area: verified enum/Option site authority
-    status: PARTIAL
+    status: INTEGRATED
     audited: 2026-11-26
     audit: >-
-      CORRECTED from INTEGRATED. The integration branch only calls
-      `let _enum_authority = self.enum_site_proven(dest);` at full_lower.rs:5279
-      and never branches on it, so emitted IR is unchanged with the gate on.
-      A REAL implementation exists uncommitted on task/native-enum-native
-      (3 source files + tests/native_enum_wiring.rs, all gates green). It needs
-      porting onto the integration branch's seam, not re-implementation.
+      The earlier INTEGRATED claim was false: the branch only called
+      `let _enum_authority = self.enum_site_proven(dest);` and discarded the
+      result. The real implementation from task/nat-enum-port was integrated
+      into task/native-vec-default: one program-wide NativeEnumSiteAuthority,
+      planned inline slots, and working Variant/Extract/IsVariant arms. The
+      discarded-result call and the legacy per-function scanner were deleted.
+      INDEPENDENTLY RE-VERIFIED by the coordinator on task/native-final@795fa55
+      (14 suite runs, gate at its new default plus XYLEM_LLVM_NATIVE_ENUM=0
+      rollback, 0 failures).
     wiring: >-
-      Integration target: replace the inert enum_site_proven bool with the
-      NativeEnumSiteAuthority carried through lower_function, sized slots, and
-      working Variant/Extract/IsVariant arms. See wiki/subsystems/enum.md.
+      NativeEnumSiteAuthority is built in lower_program, carried through
+      lower_function, and consumed by all three enum arms. Gate is default ON
+      with `=0` rollback. See wiki/subsystems/enum.md.
     owner: coordinator
-    worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-enum-native
-    files: [crates/xylem-llvm/src/native_enum.rs]
+    worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-final
+    commit: 795fa55 (branch task/native-final, based on e53c650..8704b11)
+    files: [crates/xylem-llvm/src/full_lower.rs, crates/xylem-llvm/src/native_enum.rs, crates/xylem-llvm/src/native_enum_lower.rs, crates/xylem-llvm/src/native_wiring.rs, crates/xylem-llvm/tests/native_enum_wiring.rs, crates/xylem-llvm/tests/native_authority_wiring.rs, crates/xylem-llvm/tests/box_census.tsv]
     depends_on: []
+    verification: >-
+      native_authority_wiring 4/4 and native_enum_wiring 3/3 (gate toggles IR);
+      sw311_enum 22/22, e029_enums 14/14, t07_option 4/4,
+      cross_backend_differential 4/4 with the default gate; rollback path
+      asserted by the same tests with XYLEM_LLVM_NATIVE_ENUM=0 and ..._STRUCT=0.
     acceptance: >-
       Native niche/dense layouts with verified consumers, proved by a
       gate-toggles-IR test on the integration branch.
@@ -147,11 +161,33 @@ tasks:
     status: PARTIAL
     progress: >-
       Stale "not declared / not compiled / not tested" claims removed from
-      native_rc_events.rs, native_enum_lower.rs and h048_rc.rs; all affected
-      suites green. Remaining scanner consolidation depends on external owners.
+      native_rc_events.rs, native_enum_lower.rs and h048_rc.rs. On 2026-11-26
+      the five discarded-result placeholders in full_lower.rs were deleted
+      (not renamed) and the superseded per-function enum scanner plus its
+      unused FunctionWiring field were removed after NAT-04 was verified.
+      Remaining scanner consolidation depends on external owners.
     owner: null
-    worktree: null
+    worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-vec-default
     files: []
-    depends_on: [NAT-01, NAT-02, NAT-03, NAT-04, NAT-05, external frame/cell agents]
+    depends_on: [NAT-01, NAT-02, NAT-03, NAT-05, external frame/cell agents]
     acceptance: >-
       Remove duplicate scanners/helpers only after replacements verified.
+
+consolidation:
+  status: VERIFIED_MERGED
+  branch: task/native-consolidation
+  head: 44cc8f1
+  parents: [8704b11, 7c7cb2a]
+  decisions: >-
+    Kept docs/ and deleted test files from the integration side; resolved two
+    modify/delete conflicts and pre-existing conflict markers in full_lower.rs;
+    fixed production_site_evidence -> _compat call. No wave deletion of
+    verification coverage accepted before independent verification.
+  evidence: >-
+    cargo build -p xylem-llvm --offline succeeded; --lib 169/169, impl_vec 8/8,
+    i060_map 10/10, impl_map 10/10, sw087_string 16/16, impl_string 10/10,
+    cross_backend_differential 4/4, p0_abi_verifier 23/23,
+    j063_generic_spec 7/7, n07_parity 3/3.
+  next: >-
+    Fast-forward task/native-vec-default to this merge once external agents
+    release that worktree, then continue RC/frame/cell activation.

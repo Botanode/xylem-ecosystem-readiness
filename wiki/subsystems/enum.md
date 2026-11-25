@@ -36,9 +36,11 @@ wrong.
 
 ## Gating
 
-`XYLEM_LLVM_NATIVE_ENUM` — `1`/`true`/`on` enables. Default OFF as of
-2026-11-26, because the default flip needs the full pinned suite run the
-registry requires.
+`XYLEM_LLVM_NATIVE_ENUM` — native lowering is the default as of 2026-11-26;
+`0`/`false`/`off` restores the boxed fallback byte-for-byte. The flip was
+verified with the gate-toggling tests (`native_enum_wiring.rs`,
+`native_authority_wiring.rs`) and the enum suites (`sw311_enum`, `e029_enums`,
+`t07_option`) plus `cross_backend_differential`.
 
 Also gated by `XYLEM_LLVM_NATIVE_STRUCT`, because an enum slot is an aggregate
 slot.
