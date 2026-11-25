@@ -50,7 +50,11 @@ ownership:
 tasks:
   - id: NAT-01
     area: RC substitution
-    status: OPEN
+    status: PARTIAL
+    progress: >-
+      Opt-in consumer wired for fully cancelled release-only fragments at
+      explicit Drop sites; default emits every helper. Remaining fragments
+      (inline load, store-with-free) need RcEventInput descriptors.
     note: >-
       Coordinator took ownership of native_wiring.rs; substitution stays
       fail-closed until fragment wiring and differential checks pass.
@@ -65,6 +69,9 @@ tasks:
   - id: NAT-02
     area: verified closure thunk facts
     status: INTEGRATED
+    wiring: >-
+      production_closure_facts(&[]) replaces facts_from_verified(&[]) in
+      native_wiring; with no verified thunk bodies every closure stays boxed.
     owner: NAT-02 (session subagent)
     worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-closure-native
     files: [crates/xylem-llvm/src/native_closure.rs, crates/xylem-llvm/src/lower_emit/call.rs]
@@ -89,6 +96,9 @@ tasks:
   - id: NAT-04
     area: verified enum/Option site authority
     status: INTEGRATED
+    wiring: >-
+      FunctionWiring carries enum_facts + enum_site_evidence; full_lower
+      queries one fail-closed enum_site_proven seam, false by default.
     owner: coordinator
     owner: NAT-04 (session subagent)
     worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-enum-native
