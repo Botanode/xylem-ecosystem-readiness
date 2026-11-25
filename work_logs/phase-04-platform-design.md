@@ -515,6 +515,21 @@ deprecated with a staged migration plan. Source-only reconciliation applied to
 the test platform CLI: `discover` imported from core `plan.xy`, duplicate import
 removed, README assumptions updated.
 
+## Additional SDLC tools opened (2026-11-25)
+
+Four new Xylem-source-only work orders (D-007, host measurement window active):
+- `task/ecosystem/module-graph` — import extraction, dangling/cycle detection,
+  Mermaid/JSON/summary reports, no AST or compiler internals.
+- `task/ecosystem/docgen` — source-text declaration/doc-comment Markdown
+  generator; complements (does not replace) compiler `xylem doc`.
+- `task/ecosystem/scaffold` — Xylem-native project templates for console,
+  library, tested-library, web and platform-console; dry-run support.
+- `task/ecosystem/manifest-audit` — Xylem replacement for manifest/SBOM schema,
+  compatibility identity and audit checks; no install/signature/build work.
+
+All are isolated under `tools/<name>/`, source-only, unverified, no merge/push,
+and explicitly avoid Python/Bash and protected compiler areas.
+
 ## PENDING
 
 - Owner rulings: server-runtime name, `xylem-desktop` collision, packaging

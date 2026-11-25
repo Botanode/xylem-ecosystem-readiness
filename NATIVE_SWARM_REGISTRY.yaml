@@ -1,0 +1,96 @@
+# Native execution swarm — shared task registry
+#
+# Coordinator: the session agent (single writer for this file).
+# Rules: one owner per task, one owner per file set, no competing architecture.
+# Status: OPEN / ASSIGNED / IN_PROGRESS / VERIFIED / INTEGRATED / BLOCKED.
+# Verification: pinned cargo tests only; NO performance benchmarks.
+
+coordinator:
+  integration_branch: task/native-vec-default
+  integration_repo: xylem-rust
+  current_head: 149e525
+  verified_default_native:
+    - native vec mutation (impl_vec 8/8, rollback 8/8)
+    - typed I64 map insert/remove (i060_map 10/10, impl_map 10/10, rollback 10/10)
+    - owned string compare (sw087_string 16/16, impl_string 10/10, rollback 16/16)
+    - A001 generic layout bridge + all-scalar/aggregate adapter bodies
+      (j063_generic_spec 7/7, bridge rollback 7/7)
+    - single-authority RC event stream (wired, substitution still disabled)
+  verification_baseline:
+    lib: 169 passed; 0 failed
+    pinned_suites: impl_vec, i060_map, impl_map, sw087_string, impl_string,
+      cross_backend_differential, p0_abi_verifier, j063_generic_spec,
+      a004_wiring_consistency, sw02_vec_mutate, nat_slice_pair, sw313_strings
+
+ownership:
+  exclusive: true
+  file_sets_are_disjoint: true
+  no_force_push: true
+  no_merge_to_main: true
+  no_benchmarks: true
+  required_before_integration:
+    - pinned focused tests
+    - IR verification / build of affected fixtures
+    - differential equivalence vs interpreter
+    - trap and diagnostic equivalence
+    - rollback variant where a gate changes
+
+tasks:
+  - id: NAT-01
+    area: RC substitution
+    status: OPEN
+    owner: null
+    worktree: null
+    files: [crates/xylem-llvm/src/lower_emit/ownership.rs, crates/xylem-llvm/src/native_wiring.rs]
+    depends_on: []
+    acceptance: >-
+      Prove zero-delta retain/release cancellation on affected fixtures;
+      no leak or double-free; full pinned suites green with substitution on
+      and with rollback.
+  - id: NAT-02
+    area: closure thunks
+    status: OPEN
+    owner: null
+    worktree: null
+    files: [crates/xylem-llvm/src/native_closure.rs, crates/xylem-llvm/src/lower_emit/call.rs]
+    depends_on: []
+    acceptance: >-
+      Verified thunk bodies, native environment word, call and drop; rollback
+      keeps every unproven closure boxed.
+  - id: NAT-03
+    area: frame/cell/box elimination
+    status: OPEN
+    owner: null
+    worktree: null
+    files: [crates/xylem-llvm/src/native_frame.rs, crates/xylem-llvm/src/full_lower.rs]
+    depends_on: [NAT-01]
+    acceptance: >-
+      Reduce remaining xylem_rt_a_cell/frame sites with authority-backed facts;
+      preserve trap order and drop semantics; pinned suites green.
+  - id: NAT-04
+    area: enum/Option native lowering
+    status: OPEN
+    owner: null
+    worktree: null
+    files: [crates/xylem-llvm/src/native_enum.rs]
+    depends_on: []
+    acceptance: Native niche/dense layouts with verified consumers.
+  - id: NAT-05
+    area: Cranelift representation parity
+    status: OPEN
+    owner: null
+    worktree: null
+    files: [crates/xylem-native/src/cranelift_full.rs]
+    depends_on: []
+    acceptance: >-
+      Cross-backend differential equivalence for all default native paths;
+      no silent fallback when LLVM is selected.
+  - id: NAT-06
+    area: consolidation / obsolete code removal
+    status: OPEN
+    owner: null
+    worktree: null
+    files: []
+    depends_on: [NAT-01, NAT-02, NAT-03, NAT-04, NAT-05]
+    acceptance: >-
+      Remove duplicate scanners/helpers only after replacements verified.
