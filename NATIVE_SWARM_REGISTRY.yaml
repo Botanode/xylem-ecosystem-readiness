@@ -5,6 +5,18 @@
 # Status: OPEN / ASSIGNED / IN_PROGRESS / VERIFIED / INTEGRATED / BLOCKED.
 # Verification: pinned cargo tests only; NO performance benchmarks.
 
+external_active_owners:
+  - id: T-DOMPHI-FIX
+    files: [repr.rs, native_cell_plan.rs, domphi_definite_assignment.rs]
+    note: In progress in /tmp/opencode/swarm/domphi and task-authority; DO NOT ASSIGN.
+  - id: T-FRAMES-FIX
+    files: [native_frame.rs, frames_boundary_canary.rs, frames_dead_callee.rs]
+    note: In progress in /tmp/opencode/swarm/frames; DO NOT ASSIGN.
+  - id: T-VECABI-HOOK
+    files: [native_wiring.rs, native_prims.rs, lower_emit/vec_get.rs, vecabi canaries]
+    note: In progress in /tmp/opencode/swarm/vecabi; DO NOT ASSIGN.
+  source: .mission/task_registry.yaml wave native-swarm-integration-2
+
 coordinator:
   integration_branch: task/native-vec-default
   integration_repo: xylem-rust
@@ -38,7 +50,11 @@ ownership:
 tasks:
   - id: NAT-01
     area: RC substitution
-    status: OPEN
+    status: BLOCKED
+    blocker: >-
+      Enabling requires native_wiring.rs, owned by active external agent
+      T-VECABI-HOOK. Work may proceed only on native_rc_events.rs fragments
+      and tests until that ownership is released.
     owner: null
     worktree: null
     files: [crates/xylem-llvm/src/lower_emit/ownership.rs, crates/xylem-llvm/src/native_wiring.rs]
@@ -59,7 +75,11 @@ tasks:
       keeps every unproven closure boxed.
   - id: NAT-03
     area: frame/cell/box elimination
-    status: OPEN
+    status: BLOCKED
+    blocker: >-
+      Owned by active external agents T-DOMPHI-FIX / T-FRAMES-FIX /
+      T-VECABI-HOOK. Do not edit repr.rs, native_cell_plan.rs, native_frame.rs,
+      native_prims.rs or frame/vecabi canaries.
     owner: null
     worktree: null
     files: [crates/xylem-llvm/src/native_frame.rs, crates/xylem-llvm/src/full_lower.rs]
@@ -91,6 +111,6 @@ tasks:
     owner: null
     worktree: null
     files: []
-    depends_on: [NAT-01, NAT-02, NAT-03, NAT-04, NAT-05]
+    depends_on: [NAT-01, NAT-02, NAT-03, NAT-04, NAT-05, external frame/cell agents]
     acceptance: >-
       Remove duplicate scanners/helpers only after replacements verified.
