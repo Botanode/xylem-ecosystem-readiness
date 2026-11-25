@@ -59,10 +59,10 @@ tasks:
     progress: >-
       Opt-in consumer wired for fully cancelled release-only fragments at
       explicit Drop sites; default emits every helper. Remaining fragments
-      (inline load, store-with-free) need RcEventInput descriptors recorded
-      in emission order at cell_get_fast / cell_set_fast; the stream is
-      currently built once from canonical drops before lowering, so this
-      requires a stream-builder migration, not a local patch.
+      canonical cell_get/cell_set descriptors are now recorded in rc_stream
+      and NonOwningInlineLoad is consumed at load_cell. StoreWithOldValueFree
+      remains unconsumed. No available fixture produces a zero-delta
+      cancellation, so an IR-difference canary cannot be satisfied yet.
     note: >-
       Coordinator took ownership of native_wiring.rs; substitution stays
       fail-closed until fragment wiring and differential checks pass.
@@ -133,15 +133,21 @@ tasks:
       lower_function, and consumed by all three enum arms. Gate is default ON
       with `=0` rollback. See wiki/subsystems/enum.md.
     owner: coordinator
-    worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-final
-    commit: 795fa55 (branch task/native-final, based on e53c650..8704b11)
+    worktree: /home/philip/Development/version_2/ecosystem-worktrees/task-native-clean
+    commit: d9ed8dc (branch task/native-clean, based directly on e53c650)
     files: [crates/xylem-llvm/src/full_lower.rs, crates/xylem-llvm/src/native_enum.rs, crates/xylem-llvm/src/native_enum_lower.rs, crates/xylem-llvm/src/native_wiring.rs, crates/xylem-llvm/tests/native_enum_wiring.rs, crates/xylem-llvm/tests/native_authority_wiring.rs, crates/xylem-llvm/tests/box_census.tsv]
     depends_on: []
     verification: >-
       native_authority_wiring 4/4 and native_enum_wiring 3/3 (gate toggles IR);
-      sw311_enum 22/22, e029_enums 14/14, t07_option 4/4,
-      cross_backend_differential 4/4 with the default gate; rollback path
-      asserted by the same tests with XYLEM_LLVM_NATIVE_ENUM=0 and ..._STRUCT=0.
+      sw311_enum 22/22, e029_enums 14/14, t07_option 4/4, llvm_backend 38/38
+      including the enum payload differential (which exposed and fixed three
+      latent bugs); box_justification 4/4; cross_backend_differential 4/4.
+      The full --no-fail-fast run has five failures (n06_helper_elim,
+      native_aggregate_guard, native_collection_helpers, native_place_impl,
+      sw009_prims_wiring) that reproduce identically with
+      XYLEM_LLVM_NATIVE_ENUM=0 and are inherited from the e53c650 base, not
+      caused by this change. Rollback path is asserted by the gate tests with
+      XYLEM_LLVM_NATIVE_ENUM=0 and XYLEM_LLVM_NATIVE_STRUCT=0.
     acceptance: >-
       Native niche/dense layouts with verified consumers, proved by a
       gate-toggles-IR test on the integration branch.
@@ -176,7 +182,7 @@ tasks:
 consolidation:
   status: VERIFIED_MERGED
   branch: task/native-consolidation
-  head: afbf63f
+  head: fec608e
   parents: [8704b11, 7c7cb2a]
   decisions: >-
     Kept docs/ and deleted test files from the integration side; resolved two

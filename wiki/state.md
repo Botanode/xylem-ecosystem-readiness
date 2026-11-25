@@ -25,11 +25,18 @@ As of `task/native-vec-default@e53c650`, per `NATIVE_SWARM_REGISTRY.yaml`:
 - Typed I64 map insert/remove — `i060_map` 10/10, `impl_map` 10/10.
 - Owned string compare — `sw087_string` 16/16, `impl_string` 10/10.
 - Generic layout bridge + adapter bodies — `j063_generic_spec` 7/7.
-- Enum / Option site authority — default-on as of 2026-11-26. Gate-toggling
-  IR tests `native_authority_wiring` 4/4 and `native_enum_wiring` 3/3;
-  `sw311_enum` 22/22, `e029_enums` 14/14, `t07_option` 4/4. The boxed path is
-  restored by `XYLEM_LLVM_NATIVE_ENUM=0`. The legacy per-function enum scanner
-  and its unused `FunctionWiring` field were removed.
+- Enum / Option site authority — default-on as of 2026-11-26 on
+  `task/native-clean@d9ed8dc`, based directly on `e53c650`. Gate-toggling IR
+  tests `native_authority_wiring` 4/4 and `native_enum_wiring` 3/3;
+  `sw311_enum` 22/22, `e029_enums` 14/14, `t07_option` 4/4, `llvm_backend`
+  38/38 (including the interpreter differential that exposed three latent
+  promotion bugs), `box_justification` 4/4. The boxed path is restored by
+  `XYLEM_LLVM_NATIVE_ENUM=0`. The legacy enum scanner, its unused
+  `FunctionWiring` field and all discarded-result placeholders were deleted.
+  Five full-suite failures remain on the base (`n06_helper_elim`,
+  `native_aggregate_guard`, `native_collection_helpers`, `native_place_impl`,
+  `sw009_prims_wiring`); all five reproduce with `XYLEM_LLVM_NATIVE_ENUM=0`
+  and are inherited from `e53c650`, not introduced by the default flip.
 - Baselines: `--lib` 171 passed, `cross_backend_differential` 4/4,
   `p0_abi_verifier` 23/23.
 
