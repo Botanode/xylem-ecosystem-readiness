@@ -21,7 +21,7 @@ external_owners_source: ".mission/task_registry.yaml wave native-swarm-integrati
 coordinator:
   integration_branch: task/native-final
   integration_repo: xylem-rust
-  current_head: c2f4254
+  current_head: fb148bd
   integration_history: >-
     task/native-vec-default@8704b11 carries the enum port; task/native-final@795fa55
     sits on top and defaults the enum gate ON. Verified by the coordinator on
@@ -182,7 +182,7 @@ tasks:
 consolidation:
   status: VERIFIED_MERGED
   branch: task/native-consolidation
-  head: c2f4254
+  head: fb148bd
   parents: [8704b11, 7c7cb2a]
   decisions: >-
     Kept docs/ and deleted test files from the integration side; resolved two
