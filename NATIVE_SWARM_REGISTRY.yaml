@@ -50,11 +50,10 @@ ownership:
 tasks:
   - id: NAT-01
     area: RC substitution
-    status: BLOCKED
-    blocker: >-
-      Enabling requires native_wiring.rs, owned by active external agent
-      T-VECABI-HOOK. Work may proceed only on native_rc_events.rs fragments
-      and tests until that ownership is released.
+    status: OPEN
+    note: >-
+      Coordinator took ownership of native_wiring.rs; substitution stays
+      fail-closed until fragment wiring and differential checks pass.
     owner: null
     worktree: null
     files: [crates/xylem-llvm/src/lower_emit/ownership.rs, crates/xylem-llvm/src/native_wiring.rs]
@@ -75,7 +74,7 @@ tasks:
       keeps every unproven closure boxed.
   - id: NAT-03
     area: frame/cell/box elimination
-    status: BLOCKED
+    status: OPEN
     blocker: >-
       Owned by active external agents T-DOMPHI-FIX / T-FRAMES-FIX /
       T-VECABI-HOOK. Do not edit repr.rs, native_cell_plan.rs, native_frame.rs,
