@@ -31,3 +31,9 @@ Written for the next session; every claim is dated or cites a commit.
 | Page | Summary |
 | --- | --- |
 | [tasks.md](tasks.md) | Live task registry summary and how to read `NATIVE_SWARM_REGISTRY.yaml`. |
+
+## Adjacent work
+
+| Page | Summary |
+| --- | --- |
+| [independent-improvements.md](independent-improvements.md) | Dated record of non-lowering improvements, ownership boundaries, and resolved/remaining findings. |
